@@ -10,26 +10,23 @@
           <div class="card grey darken-4">
             <div class="card-content white-text">
               <span class="card-title">Slabs Against Mankind</span>
-              <p>
-                {{"Get black card from array of JSON Objects"}}
-              </p>
+              <p> {{ bc }}</p>
               <hr/>
             </div>
           </div>
 
           <!-- White Card -->
-          <form action="">
+          <form method="post" onsubmit="return false">
           {% for i in range(4)%}
           <div class="card grey white">
             <div class="card-content black-text">
-              <p>{{"Get white card from array of JSON Objects"}}
-              </p>
-              <a class="btn-floating waves-effect waves-light red right"><i class="material-icons">add</i></a>
+              <p>{{ arr[i] }}</p>
+              <a id="{{i}}" class="btn-floating waves-effect waves-light grey right" onclick="selectCard({{i}})"><i class="material-icons"></i></a>
             </div>
           </div>
           <br>
           {% endfor %}
-          <button class="btn btn-large waves-effect waves-light right" type="submit" name="action">Submit</button>
+          <button class="btn btn-large waves-effect waves-light right" type="submit" name="action" onclick="submitCard()">Submit</button>
           </form>
         </div>
       </div>

@@ -14,7 +14,10 @@ gameMaster = None
 
 @app.before_first_request
 def activate():
+<<<<<<< HEAD
     app.secret_key = "slabz"
+=======
+>>>>>>> 39bd82f0090a95a938c2f5f875e6182a4c3b8da8
     global whiteCards
     global blackCards
     whiteCards = createWhiteCards()
@@ -29,8 +32,19 @@ def home():
 @app.route("/game")
 def game():
     # assign first person to gameMaster
+<<<<<<< HEAD
     # TODO where does gameMaster go?
     return render_template("game.html", player=session['player'])
+=======
+    #gameMaster = players[0]
+    wc = list()
+    bc = blackCards[random.randint(0, len(blackCards))]
+    wc.append(whiteCards[random.randint(0, len(whiteCards))])
+    wc.append(whiteCards[random.randint(0, len(whiteCards))])
+    wc.append(whiteCards[random.randint(0, len(whiteCards))])
+    wc.append(whiteCards[random.randint(0, len(whiteCards))])
+    return render_template("game.html", arr=wc, bc=bc)
+>>>>>>> 39bd82f0090a95a938c2f5f875e6182a4c3b8da8
 
 
 @app.route("/join", methods=['post'])
