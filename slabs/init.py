@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from generateCards import createWhiteCards, createBlackCards
 from player import *
+import random
+
 app = Flask(__name__)
 
 whiteCards = []
@@ -10,6 +12,8 @@ gameMaster = None
 
 @app.before_first_request
 def activate():
+    global whiteCards
+    global blackCards
     whiteCards = createWhiteCards()
     blackCards = createBlackCards()
     print("Cards Generated.")
@@ -22,8 +26,14 @@ def home():
 @app.route("/game")
 def game():
     # assign first person to gameMaster
-    gameMaster = players[0]
-    return render_template("game.html")
+    #gameMaster = players[0]
+    wc = list()
+    bc = blackCards[random.randint(0, len(blackCards))]
+    wc.append(whiteCards[random.randint(0, len(whiteCards))])
+    wc.append(whiteCards[random.randint(0, len(whiteCards))])
+    wc.append(whiteCards[random.randint(0, len(whiteCards))])
+    wc.append(whiteCards[random.randint(0, len(whiteCards))])
+    return render_template("game.html", arr=wc, bc=bc)
 
 
 @app.route("/join", methods=['post'])
