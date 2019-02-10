@@ -9,6 +9,7 @@ class Player:
         return card
 
     def getCards(self):
-        count = len(self.cards)
-        while count < 4:
-            count+=1
+        return self.cards
+
+    def addCard(self, card):
+        self.cards.append(card)
