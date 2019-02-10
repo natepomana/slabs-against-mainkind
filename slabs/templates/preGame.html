@@ -1,6 +1,9 @@
 <div class="container valign-wrapper">
 {% if name %}
   <h4>Welcome {{name}}</h4>
+  {% if master %}
+    <button class="btn">Start Game</button>
+  {% endif %}
 {% else %}
   <h4>Please wait while players join...</h4>
 {% endif %}
