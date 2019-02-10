@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import json
 app = Flask(__name__)
 
 @app.route("/hello")
@@ -15,13 +14,13 @@ def game():
 def join():
     type = request.form['type']
     name = request.form['name']
-    if type == "join" && name != "":
+    if type == "join" and name != "":
         # user can join a game.
-        return
+        return render_template("preGame.html", name=name)
     elif type == "watch":
         # user can watch a game.
-        return
-    return name
+        return render_template("preGame.html")
+
 
 
 if __name__ == '__main__':
