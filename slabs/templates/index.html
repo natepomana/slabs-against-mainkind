@@ -22,14 +22,14 @@
           <span class="card-title">Slabs Against Humanity</span>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus pellentesque sapien ut tincidunt. Cras elit nisi, luctus pellentesque neque nec, commodo posuere mauris.</p>
           <hr/>
-          <br/>
 						<div class="input-field">
 							<input type="text" name="username" id="username" class="validate">
 							<label for="username">Username</label>
 						</div>
         </div>
         <div class="card-action">
-          <button class="btn">adsf</button>
+          <button class="btn" onclick='play("join",$("#username").val())'>Join Game</button>
+          <button class="btn right" onclick='play("watch","")'>Watch</button>
         </div>
       </div>
     </div>
@@ -40,6 +40,7 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
     <script type="text/javascript">
       console.log("hi");
