@@ -2,8 +2,9 @@ console.log("asdf");
 
 
 const play = (type,name) => {
-  console.log(type,name);
-  // $.post("url",{type:type, name: name}).done((data)=>{
-  //   console.log(data);
-  // });
+  if ((type === "join" && name !== "") || type === "watch") {
+    $.post("url",{type:type, name: name}).done((data)=>{
+      console.log(data);
+    });
+  }
 }
