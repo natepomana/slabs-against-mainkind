@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, session, jsonify
+from flask import Flask, render_template, request, session
+import json
 from generateCards import createWhiteCards, createBlackCards
 from player import *
 import random
@@ -29,7 +30,7 @@ def home():
 def game():
     # assign first person to gameMaster
     # TODO where does gameMaster go?
-    return render_template("game.html", player=jsonify(json.dumps(session['player'].__dict__)))
+    return render_template("game.html", player=session['player'])
 
 
 @app.route("/join", methods=['post'])
@@ -49,7 +50,7 @@ def join():
             count +=1
         players.append(player)
         # add player to session.
-        session['player'] = player
+        session['player'] =json.dumps(player.__dict__)
         print("Player added: " + player.name)
         if len(players) == 1:
             return render_template("preGame.html", name=name, master="true")
