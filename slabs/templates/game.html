@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content%}
 
-{{player}}
-
     <div class="container">
       <div class="row valign-wrapper">
         <div class="col s12 valign">
@@ -10,7 +8,7 @@
           <div class="card grey darken-4">
             <div class="card-content white-text">
               <span class="card-title">Slabs Against Mankind</span>
-              <p> {{ bc }}</p>
+              <p>asdfasdfadsfasdf </p>
               <hr/>
             </div>
           </div>
@@ -20,7 +18,7 @@
           {% for i in range(4)%}
           <div class="card grey white">
             <div class="card-content black-text">
-              <p>{{ arr[i] }}</p>
+              <p>{{ player.cards[i] }}</p>
               <a id="{{i}}" class="btn-floating waves-effect waves-light grey right" onclick="selectCard({{i}})"><i class="material-icons"></i></a>
             </div>
           </div>

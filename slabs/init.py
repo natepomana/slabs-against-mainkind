@@ -30,7 +30,7 @@ def home():
 def game():
     # assign first person to gameMaster
     # TODO where does gameMaster go?
-    return render_template("game.html", player=session['player'])
+    return render_template("game.html", player=json.loads(session['player']))
 
 
 @app.route("/join", methods=['post'])
